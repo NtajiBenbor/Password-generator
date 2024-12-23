@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="secure, Password, safeguard, generate">
+    <meta name="description" content="An app that generates secure passwords for the user.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <article>
+            <div class="password-output">
+
+            </div>
+            <form>
+                <div>
+                    <h3>Parameters</h3>
+                    <fieldset>
+                        <legend>Please select Password length:</legend>
+                        <input type="radio" id="pw-length-1" name="pw-length" value="6">
+                        <label for="pw-length-1">6 characters</label>
+                        <br>
+                        <input type="radio" id="pw-length-2" name="pw-length" value="9">
+                        <label for="pw-length-2">8 characters</label>
+                        <br>
+                        <input type="radio" id="pw-length-3" name="pw-length" value="12">
+                        <label for="pw-length-3">12 characters</label>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Select the Character case:</legend>
+                        <input type="checkbox" name="uppercase" id="uppercase">
+                        <label for="uppercase">Uppercase</label>
+                        <br>
+                        <input type="checkbox" name="lowercase" id="lowercase">
+                        <label for="lowercase">Lowercase</label>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Select Character type:</legend>
+                        <input type="checkbox" name="specialchar" id="special-char">
+                        <label for="special-char">Special Characters</label>
+                        <br>
+                        <input type="checkbox" name="number" id="number" >
+                        <label for="number">Numbers</label>
+                    </fieldset>
+                </div>
+                <div>
+                    <button type="submit">Generate</button>
+                </div>
+            </form>
+        </article>
+    </div>
+
+    <script type="module" src="/app.js"></script>
+</body>
+</html>

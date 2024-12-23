@@ -1,0 +1,8 @@
+.password-output{
+    border: 2px solid black;
+    height: 50px;
+}
+
+input[name="pw-length"]{
+    color: red;
+}
