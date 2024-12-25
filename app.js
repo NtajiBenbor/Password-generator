@@ -1,28 +1,65 @@
-document.addEventListener("readystatechange", (event) => {
+document.addEventListener("readystatechange", () => {
   if (document.readyState === "complete") {
     initApp();
   }
 });
 
+
+
+// INIT APP FUNCTION
 function initApp() {
   const form = document.querySelector("form");
-  const pwLengthBtns = document.querySelectorAll("input[name='pwLength']");
-
+  const lettersOpt = form.elements.letters;
+  const specialCharOpt = form.elements.specialchar;
+  const NumbersCharOpt = form.elements.number;
+  const pwLengthInpOpt_1  = document.getElementById("pw-length-1");
+  const pwLengthInpOpt_2 = document.getElementById("pw-length-2");
+  const pwLengthInpOpt_3 = document.getElementById("pw-length-3");
+  let pLength;
+  //Event listener that controls from submission
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-
-    pwLengthBtns.forEach((pwLength) => {
-      let pLength = parseInt(pwLength.value);
-      if (pwLength.checked && pLength === 6) {
+	// On form submission, generate a password based on the selected length and character options.
+	// If no character options are selected, show an alert.
+	switch (true) {
+    case pwLengthInpOpt_1.checked:
+      if (
+        !NumbersCharOpt.checked &&
+        !lettersOpt.checked &&
+        !specialCharOpt.checked
+      ) {
+        console.log("please select a character option");
+      } else {
+        pLength = parseInt(pwLengthInpOpt_1.value);
         generatePassword(pLength);
-      } else if (pwLength.checked && pLength === 12) {
+      }
+      break;
+    case pwLengthInpOpt_2.checked:
+      if (
+        !NumbersCharOpt.checked &&
+        !lettersOpt.checked &&
+        !specialCharOpt.checked
+      ) {
+        console.log("please select a character option");
+      } else {
+        pLength = parseInt(pwLengthInpOpt_2.value);
         generatePassword(pLength);
-      } else if (pwLength.checked && pLength === 18) {
+      }
+      break;
+    case pwLengthInpOpt_3.checked:
+      if (
+        !NumbersCharOpt.checked &&
+        !lettersOpt.checked &&
+        !specialCharOpt.checked
+      ) {
+        console.log("please select a character option");
+      } else {
+        pLength = parseInt(pwLengthInpOpt_3.value);
         generatePassword(pLength);
-      }else{
-
-	  }
-    });
+      }
+      break;
+  }
+	resetApp()
   });
 }
 
@@ -123,9 +160,11 @@ function generatePassword(passwordlength) {
   const NumbersCharOpt = form.elements.number;
   let sharedVal ;
   if (lettersOpt.checked && NumbersCharOpt.checked && specialCharOpt.checked) {
+    //  handles cases when all the options have been selected
     // brake the password into equal parts based on user selection
-    passwordlength >= 6? sharedVal = passwordlength / 3 : sharedVal = passwordlength / 2;
-    //  hendles cases when all the options have been selected
+    passwordlength >= 6
+      ? (sharedVal = passwordlength / 3)
+      : (sharedVal = passwordlength / 2);
     // generate the user selected values
     let letter = generateLetters(sharedVal);
     let num = generateNumbers(sharedVal);
@@ -136,41 +175,70 @@ function generatePassword(passwordlength) {
       num,
       spChars
     ).join("");
-  } 
-  else if (lettersOpt.checked && NumbersCharOpt.checked) {
-	// brake the password into equal parts based on user selection
+  } else if (lettersOpt.checked && NumbersCharOpt.checked) {
+    //  handles cases when only the letter and number options have been selected
+    // brake the password into equal parts based on user selection
     // passwordlength > 6? sharedVal = passwordlength / 3 : sharedVal = passwordlength / 2;
-	sharedVal = passwordlength / 2
+    sharedVal = passwordlength / 2;
     // generate the user selected values
     let letter = generateLetters(sharedVal);
     let num = generateNumbers(sharedVal);
     //   update the UI with the generated password
-    passwordOutput.textContent = ShufflePasswordChars(
-      letter,
-      num
-    ).join("");
-  }
-  else if (specialCharOpt.checked && lettersOpt.checked) {
-	// brake the password into equal parts based on user selection
-	sharedVal = passwordlength / 2
-	//  hendles cases when all the options have been selected
+    passwordOutput.textContent = ShufflePasswordChars(letter, num).join("");
+  } else if (specialCharOpt.checked && lettersOpt.checked) {
+    //  handles cases when only the sepcial character and letter options have been selected
+    // brake the password into equal parts based on user selection
+    sharedVal = passwordlength / 2;
     // generate the user selected values
     let letter = generateLetters(sharedVal);
     let spChars = generateSpecialChars(sharedVal);
     //   update the UI with the generated password
-    passwordOutput.textContent = ShufflePasswordChars(
-      letter,
-      spChars
-    ).join("");
+    passwordOutput.textContent = ShufflePasswordChars(letter, spChars).join("");
+  } else if (specialCharOpt.checked && NumbersCharOpt.checked) {
+    //  handles cases when only the sepcial character and number options have been selected
+    // brake the password into equal parts based on user selection
+    sharedVal = passwordlength / 2;
+    // generate the user selected values
+    let num = generateNumbers(sharedVal);
+    let spChars = generateSpecialChars(sharedVal);
+    //   update the UI with the generated password
+    passwordOutput.textContent = ShufflePasswordChars(spChars, num).join("");
+  } else if (
+    lettersOpt.checked ||
+    NumbersCharOpt.checked ||
+    specialCharOpt.checked
+  ) {
+    //  handles cases either sepcial character, number or letter options have been selected
+    switch (true) {
+      case specialCharOpt.checked:
+        let spChars = generateSpecialChars(passwordlength);
+        //   update the UI with the generated password
+        passwordOutput.textContent = ShufflePasswordChars(spChars).join("");
+        break;
+      case NumbersCharOpt.checked:
+        let num = generateNumbers(passwordlength);
+        //   update the UI with the generated password
+        passwordOutput.textContent = ShufflePasswordChars(num).join("");
+        break;
+      case lettersOpt.checked:
+        let letter = generateLetters(passwordlength);
+        //   update the UI with the generated password
+        passwordOutput.textContent = ShufflePasswordChars(letter).join("");
+        break;
+    }
   }
-  else if(specialCharOpt.checked && NumbersCharOpt.checked){
-		// brake the password into equal parts based on user selection
-		sharedVal = passwordlength / 2
-		//  hendles cases when all the options have been selected
-		// generate the user selected values
-		let num = generateNumbers(sharedVal);
-		let spChars = generateSpecialChars(sharedVal);
-		//   update the UI with the generated password
-		passwordOutput.textContent = ShufflePasswordChars(spChars, num).join("");
-  }
+}
+
+// RESET APP FUNC
+function resetApp() {
+  const pwLengthBtn_6 = document.getElementById("pw-length-1");
+  const form = document.querySelector("form");
+  const lettersOpt = form.elements.letters;
+  const specialCharOpt = form.elements.specialchar;
+  const NumbersCharOpt = form.elements.number;
+  // reset the form inputs to an unchecked state
+  lettersOpt.checked = false;
+  specialCharOpt.checked = false;
+  NumbersCharOpt.checked = false;
+  pwLengthBtn_6.checked = true;
 }
