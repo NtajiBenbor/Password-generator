@@ -1,8 +1,24 @@
 .password-output{
     border: 2px solid black;
     height: 50px;
+    width: 100%;
+}
+
+.output-container{
+    border: 2px solid red; 
+    display: flex; 
+    justify-content: space-between;
+    flex: 1;
 }
 
 input[name="pw-length"]{
     color: red;
+}
+
+.copy-btn{
+    display: none;
+}
+
+.show {
+    display: block;
 }

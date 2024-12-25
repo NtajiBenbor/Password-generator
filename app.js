@@ -12,10 +12,13 @@ function initApp() {
   const lettersOpt = form.elements.letters;
   const specialCharOpt = form.elements.specialchar;
   const NumbersCharOpt = form.elements.number;
+  const passwordOutput = document.querySelector(".password-output");
+  const copyPaswordBtn = document.querySelector(".copy-btn");
   const pwLengthInpOpt_1  = document.getElementById("pw-length-1");
   const pwLengthInpOpt_2 = document.getElementById("pw-length-2");
   const pwLengthInpOpt_3 = document.getElementById("pw-length-3");
   let pLength;
+
   //Event listener that controls from submission
   form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -61,12 +64,23 @@ function initApp() {
   }
 	resetApp()
   });
+
+  //Event listener that controls the copy button functionality
+  copyPaswordBtn.addEventListener("click",()=>copypasword(event));
+
+//   //Event listener that implements copy funtionality
+//   passwordOutput.addEventListener("copy",(event)=>copypasword(event));
 }
 
 
 
 
-
+// COPY PASSWORD FUNC
+function copypasword(){
+	const passwordOutput = document.querySelector(".password-output").textContent;
+	navigator.clipboard.writeText( passwordOutput)
+	console.log("copied password");
+}
 
 // GENERATE LETTER FUNC
 function generateLetters(sharedVal) {
@@ -154,6 +168,7 @@ function ShufflePasswordChars(arr1, arr2, arr3) {
 // GENERATE PASSWORD FUNC
 function generatePassword(passwordlength) {
   const passwordOutput = document.querySelector(".password-output");
+  const copyPaswordBtn = document.querySelector(".copy-btn");
   const form = document.querySelector("form");
   const lettersOpt = form.elements.letters;
   const specialCharOpt = form.elements.specialchar;
@@ -227,6 +242,7 @@ function generatePassword(passwordlength) {
         break;
     }
   }
+  copyPaswordBtn.classList.add("show");
 }
 
 // RESET APP FUNC
