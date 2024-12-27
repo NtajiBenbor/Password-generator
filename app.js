@@ -68,8 +68,7 @@ function initApp() {
   //Event listener that controls the copy button functionality
   copyPaswordBtn.addEventListener("click",()=>copypasword(event));
 
-//   //Event listener that implements copy funtionality
-//   passwordOutput.addEventListener("copy",(event)=>copypasword(event));
+
 }
 
 
