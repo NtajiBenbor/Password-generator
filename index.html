@@ -10,29 +10,33 @@
 </head>
 <body>
     
-    <div class="container">
+    <main class="container">
         <article>
-          <form>
-            <!-- password output section -->
-            <div class="output-container">
-                <div class="password-output">
-                
+            <form>
+                <!-- password output section -->
+                <div class="output-container">
+                    <div class="password-output">
+        
+                    </div>
+                    <!-- regenerate password and copy btn -->
+                    <span>
+                        <button class="copy-btn" type="button">copy</button>
+                        <button class="saved-password-btn" type="button">save</button>
+                        <button type="submit">Gen</button>
+                    </span>
                 </div>
-                <!-- regenerate password and copy btn -->
-                <span>
-                    <button class="copy-btn" type="button" >copy</button>
-                    <button type="submit">Gen</button>
-                </span>
-            </div>
                 <div>
-                    <div class="parameter-title">
-                        <h3>Parameters</h3>
-                        <div><h4>password strength</h4>
+                    <!-- password strength Indicator bar -->
+                    <div class="p-strength-wrapper d-flex">
+                        <h4>password strength</h4>
+                        <div class="d-flex bars-wrapper">
+                            <div class="strength-txt">strong</div>
                             <div class="strength-bars"></div>
                             <div class="strength-bars"></div>
                             <div class="strength-bars"></div>
                         </div>
-                    </div> 
+                    </div>
+                    <!-- password length -->
                     <fieldset>
                         <legend>Please choose your password length:</legend>
                         <input type="radio" id="pw-length-1" name="pwLength" value="6" checked>
@@ -44,7 +48,7 @@
                         <input type="radio" id="pw-length-3" name="pwLength" value="18">
                         <label for="pw-length-3">18 characters</label>
                     </fieldset>
-
+                    <!-- password charater type -->
                     <fieldset>
                         <legend>Select your character type:</legend>
                         <input type="checkbox" name="letters" id="letters" class="charset">
@@ -57,10 +61,36 @@
                         <label for="number">Numbers</label>
                     </fieldset>
                 </div>
-
             </form>
         </article>
-    </div>
+        <!-- saved Password & recent Password section-->
+        <article>
+            <!-- recent passwords -->
+             <h3>Recent Passwords</h3>
+             <aside class="recent-password-container">
+                <!-- password 1-->
+                <div>
+                    <p>asm23#nfh%Gr<span><button type="button">copy</button></span></p>
+                </div>
+                <button type="button">clear history</button>
+             </aside>
+
+            <!-- Saved Passwords -->
+             <aside class="saved-password-container">
+                <h3>Saved Passwords</h3>
+                <!-- password 1-->
+                <div>
+                    <p class="sitename">Netflix.com</p>
+                    <p class="username">jandoe@gmail.com</p>
+                    <p class="password">asm23#nfh%Gr<span><button type="button">copy</button></span></p>
+                </div>
+             </aside>
+        </article>
+        <!-- save password Modal -->
+        <article>
+            <form class=""></form>
+        </article>
+    </main>
 
     <script type="module" src="/app.js"></script>
 </body>

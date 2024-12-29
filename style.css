@@ -15,8 +15,40 @@ input[name="pw-length"]{
     color: red;
 }
 
+.d-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+
+
+.strength-bars{
+    height: 5px;
+    width: 30px;
+    border: 1px solid transparent;
+    margin-left: .5rem;
+    border-radius: 5px;
+   background-color: aquamarine;
+    
+}
+
+/* .strength-bars:nth-child(2){
+    background-color: red;
+}
+.strength-bars:nth-child(3){
+    background-color: yellow;
+}
+.strength-bars:nth-child(4){
+    background-color: green;
+} */
+
 .copy-btn{
     display: none;
+}
+
+.show-strength-bars{
+    background-color: navy;  
 }
 
 .show {

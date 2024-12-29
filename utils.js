@@ -103,6 +103,7 @@ function generatePassword(passwordlength) {
   if (lettersOpt.checked && NumbersCharOpt.checked && specialCharOpt.checked) {
     //  handles cases when all the options have been selected
     // brake the password into equal parts based on user selection
+    resetPasswordStrengthIndicator();
     passwordlength >= 6
       ? (sharedVal = passwordlength / 3)
       : (sharedVal = passwordlength / 2);
@@ -116,40 +117,49 @@ function generatePassword(passwordlength) {
       num,
       spChars
     ).join("");
+    passwordStrengthIndicator(2);
   } else if (lettersOpt.checked && NumbersCharOpt.checked) {
     //  handles cases when only the letter and number options have been selected
     // brake the password into equal parts based on user selection
-    // passwordlength > 6? sharedVal = passwordlength / 3 : sharedVal = passwordlength / 2;
+    resetPasswordStrengthIndicator();
     sharedVal = passwordlength / 2;
     // generate the user selected values
     let letter = generateLetters(sharedVal);
     let num = generateNumbers(sharedVal);
     //   update the UI with the generated password
     passwordOutput.textContent = ShufflePasswordChars(letter, num).join("");
+    passwordStrengthIndicator(1);
   } else if (specialCharOpt.checked && lettersOpt.checked) {
     //  handles cases when only the sepcial character and letter options have been selected
     // brake the password into equal parts based on user selection
+    resetPasswordStrengthIndicator();
     sharedVal = passwordlength / 2;
     // generate the user selected values
     let letter = generateLetters(sharedVal);
     let spChars = generateSpecialChars(sharedVal);
     //   update the UI with the generated password
     passwordOutput.textContent = ShufflePasswordChars(letter, spChars).join("");
+    passwordStrengthIndicator(1);
   } else if (specialCharOpt.checked && NumbersCharOpt.checked) {
     //  handles cases when only the sepcial character and number options have been selected
     // brake the password into equal parts based on user selection
+    // reset the pasword strength indicator
+    resetPasswordStrengthIndicator();
     sharedVal = passwordlength / 2;
     // generate the user selected values
     let num = generateNumbers(sharedVal);
     let spChars = generateSpecialChars(sharedVal);
     //   update the UI with the generated password
     passwordOutput.textContent = ShufflePasswordChars(spChars, num).join("");
+    passwordStrengthIndicator(1);
   } else if (
     lettersOpt.checked ||
     NumbersCharOpt.checked ||
     specialCharOpt.checked
   ) {
     //  handles cases either sepcial character, number or letter options have been selected
+    // reset the pasword strength indicator
+    resetPasswordStrengthIndicator();
     switch (true) {
       case specialCharOpt.checked:
         let spChars = generateSpecialChars(passwordlength);
@@ -167,6 +177,7 @@ function generatePassword(passwordlength) {
         passwordOutput.textContent = ShufflePasswordChars(letter).join("");
         break;
     }
+    passwordStrengthIndicator(0);
   }
   copyPaswordBtn.classList.add("show");
 }
@@ -185,7 +196,39 @@ function resetApp() {
   NumbersCharOpt.checked = false;
   pwLengthBtn_6.checked = true;
   passwordOutput.textContent = ""
+  // reset the pasword strength indicator
+  resetPasswordStrengthIndicator();
+
   
+}
+
+// RESET PASSWORD INDICATOR STRENGTH FUNC
+function resetPasswordStrengthIndicator() {
+    const passwordStrengthBars = document.querySelectorAll(".strength-bars");
+    passwordStrengthBars.forEach(element => {
+        element.classList.remove("show-strength-bars");
+    });
+}
+
+// PASSWORD STRENGTH INDICATOR FUNC
+function passwordStrengthIndicator(val){
+    const passwordStrengthBars = document.querySelectorAll(".strength-bars");
+    const passwordStrengthTxt = document.querySelector(".strength-txt");
+
+    const bars = [...passwordStrengthBars];
+
+    for(let i=0; i <= val; i++){
+        bars[i].classList.add("show-strength-bars") ;
+    }
+
+    if(val == 0){
+        passwordStrengthTxt.textContent = "weak"; 
+    }else if(val == 1){
+        passwordStrengthTxt.textContent = "okay";
+    }else{
+        passwordStrengthTxt.textContent = "strong";
+    }
+    
 }
 
 export{ generatePassword, copyPassword};
