@@ -1,16 +1,18 @@
-
-import * as utils from "./utils.js"
-// import {generatePassword, copyPassword, updateRecentsList} from "./utils.js"
+// Initialize imports from namespace
+import * as Utils from "./utils/index.js"
 
 document.addEventListener("readystatechange", () => {
   if (document.readyState === "complete") {
     initApp();
+    Utils.helpers.loadRecentsPassword();
   }
 });
 
 // TODO:ADD A FEED BACK MESSAGE TO USER WHEN PASSWORD HAS BEEN COPIED
 // TODO: ADD AN ERROR MESSAGE TO USER WHEN NO OPTION HAS BEEN SELECTED
-// TODO: 
+// TODO: ADD AIMATION WHEN PASSWORDS HAVE BEEN CLEARED
+// TODO: ADD ANIMATION WHEN NEW PASSWORD IS ADDED TO RECENTS
+// TODO: ADD ANIMATION WHEN AN OLDER PASWOED HAS BEEN AGED OUT BY RECENT PASSWORD
 
 
 // INIT APP FUNCTION
@@ -42,8 +44,9 @@ function initApp() {
         console.log("please select a character option");
       } else {
         pLength = parseInt(pwLengthInpOpt_1.value);
-        let password = utils.generatePassword(pLength);
-        utils.updateRecentsList(password);
+        let password = Utils.random.generatePassword(pLength);
+        Utils.helpers.saveToLocalStorage(password);
+        Utils.helpers.updateRecentsList(password);
       }
       break;
     case pwLengthInpOpt_2.checked:
@@ -55,8 +58,9 @@ function initApp() {
         console.log("please select a character option");
       } else {
         pLength = parseInt(pwLengthInpOpt_2.value);
-        let password = utils.generatePassword(pLength);
-        utils.updateRecentsList(password);
+        let password = Utils.random.generatePassword(pLength);
+        Utils.helpers.saveToLocalStorage(password);
+        Utils.helpers.updateRecentsList(password);
       }
       break;
     case pwLengthInpOpt_3.checked:
@@ -68,8 +72,9 @@ function initApp() {
         console.log("please select a character option");
       } else {
         pLength = parseInt(pwLengthInpOpt_3.value);
-        let password = utils.generatePassword(pLength);
-        utils.updateRecentsList(password);
+        let password = Utils.random.generatePassword(pLength);
+        Utils.helpers.saveToLocalStorage(password);
+        Utils.helpers.updateRecentsList(password);
       }
       break;
   }
@@ -77,11 +82,13 @@ function initApp() {
 
   //Event listener that controls the copy button functionality
   copyPasswordBtn.addEventListener("click",()=>{
-    utils.copyPassword(passwordOutput);
+    Utils.helpers.copyPassword(passwordOutput);
   });
 
   // Event listner that clears the recents password list
-  clearRecentsListBtn.addEventListener("click",utils.clearRecentPasswordList);
+  clearRecentsListBtn.addEventListener("click",()=>{
+    Utils.helpers.clearRecentPasswordList()
+  });
 }
 
 
