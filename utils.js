@@ -1,9 +1,8 @@
 
 // COPY PASSWORD FUNC
-function copyPassword(){
-	const passwordOutput = document.querySelector(".password-output").textContent;
+function copyPassword(passwordElement){
     // access the clipboard object via the navigator object to copy the generated password
-	navigator.clipboard.writeText(passwordOutput);
+	navigator.clipboard.writeText(passwordElement.textContent);
     resetApp();
     console.log("password copied");
 }
@@ -23,7 +22,7 @@ function generateLetters(sharedVal) {
   // create a new array by randomly selecting letters from the letterArry
  //   the loop iteration count is determined by the functions argument
   for (let i = 0; i < sharedVal; i++) {
-    let randNo = Math.floor(Math.random() * letterArry.length) + 1;
+    let randNo = Math.floor(Math.random() * letterArry.length-1) + 1;
     randLetterArry.push(letterArry[randNo]);
   }
   // Map over the randLetterArry to create mixture of uppercase and lowercase letters
@@ -180,6 +179,59 @@ function generatePassword(passwordlength) {
     passwordStrengthIndicator(0);
   }
   copyPaswordBtn.classList.add("show");
+  return passwordOutput.textContent;
+}
+
+// UPDATE RECENT PASSWORD LIST FUNC
+function updateRecentsList(password){
+    const recentPassList = document.querySelector(".recent-password-container ul");
+    const recentPassContainer = document.querySelector(".recent-password-container");
+    const listElement = document.createElement("li");
+    listElement.classList.add("rect-paswd","d-flex");
+
+    
+    listElement.innerHTML = `<p>${password}</p><button class="copy-r-btn" type="button">copy</button>`;
+    recentPassList.append(listElement);
+    
+    saveToLocalStorage(password);
+    const recentsPasswordsArry = retrieveFromLocalStorage("passwordList");
+    const passwordList = document.querySelectorAll(".rect-paswd");
+    // event listener on each created list item to enable copy operation 
+    // on each item independently
+    passwordList.forEach(item=>{
+        const copyBtn = item.querySelector(".copy-r-btn");
+        const copiedPasswordElement = copyBtn.previousElementSibling;
+        copyBtn.addEventListener("click",()=>{
+            console.log(copiedPasswordElement.textContent)
+            copyPassword(copiedPasswordElement);
+            console.log("password copied from recents list");
+        });
+    })
+    
+    // limit the list of recent passwords to 5 items at all times,
+    // by automatically removing the password list items when they exceed 5 items
+    if(recentsPasswordsArry.length > 5){
+        [...passwordList][0].remove();
+        recentsPasswordsArry.shift();
+        localStorage.setItem("passwordList",JSON.stringify(recentsPasswordsArry));
+    }
+
+    if(passwordList.length > 0){
+        recentPassContainer.classList.add("show");
+    }
+
+}
+
+// CLEAR RECENTS PASSWORD LIST FUNC
+function clearRecentPasswordList(){
+    const passwordList = document.querySelectorAll(".rect-paswd");
+    const recentPassContainer = document.querySelector(".recent-password-container");
+    passwordList.forEach(element => {
+        element.remove();
+    });
+    localStorage.removeItem("passwordList");
+    recentPassContainer.classList.remove("show");
+    resetPasswordStrengthIndicator();
 }
 
 // RESET APP FUNC
@@ -202,33 +254,55 @@ function resetApp() {
   
 }
 
-// RESET PASSWORD INDICATOR STRENGTH FUNC
-function resetPasswordStrengthIndicator() {
-    const passwordStrengthBars = document.querySelectorAll(".strength-bars");
-    passwordStrengthBars.forEach(element => {
-        element.classList.remove("show-strength-bars");
-    });
-}
-
 // PASSWORD STRENGTH INDICATOR FUNC
 function passwordStrengthIndicator(val){
     const passwordStrengthBars = document.querySelectorAll(".strength-bars");
     const passwordStrengthTxt = document.querySelector(".strength-txt");
-
     const bars = [...passwordStrengthBars];
-
-    for(let i=0; i <= val; i++){
-        bars[i].classList.add("show-strength-bars") ;
+    // add the show class based on the number of bars items available
+    // the number of bars available is based on the val parameter
+    for (let i = 0; i <= val; i++) {
+      bars[i].classList.add("show-strength-bars");
     }
-
-    if(val == 0){
-        passwordStrengthTxt.textContent = "weak"; 
-    }else if(val == 1){
+    // dynamically change the text of the password strength component based on the complexity of the password
+    // complexity is determined by the value of the func val parameter.
+    switch (true) {
+      case val == 0:
+        passwordStrengthTxt.textContent = "weak";
+        break;
+      case val == 1:
         passwordStrengthTxt.textContent = "okay";
-    }else{
+        break;
+      case val == 2:
         passwordStrengthTxt.textContent = "strong";
+        break;
     }
-    
 }
 
-export{ generatePassword, copyPassword};
+// RESET PASSWORD INDICATOR STRENGTH FUNC
+function resetPasswordStrengthIndicator() {
+    const passwordStrengthBars = document.querySelectorAll(".strength-bars");
+    const passwordStrengthTxt = document.querySelector(".strength-txt");
+    passwordStrengthBars.forEach(element => {
+        element.classList.remove("show-strength-bars");
+        passwordStrengthTxt.textContent = "";
+    });
+}
+
+// ADD TO LOCAL STORAGE FUNC
+function retrieveFromLocalStorage(list){
+    return localStorage.getItem(`${list}`)
+        ?JSON.parse(localStorage.getItem(`${list}`))
+        :[];
+}
+
+// ADD TO LOCAL STORAGE
+function saveToLocalStorage(password){
+  let recentsArry = retrieveFromLocalStorage("passwordList");
+
+  recentsArry.push(password);
+  localStorage.setItem("passwordList",JSON.stringify(recentsArry));
+  
+}
+
+export{ generatePassword, copyPassword, updateRecentsList, clearRecentPasswordList};

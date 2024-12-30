@@ -43,12 +43,17 @@ input[name="pw-length"]{
     background-color: green;
 } */
 
-.copy-btn{
+.copy-btn,.clear-btn{
     display: none;
 }
 
+
 .show-strength-bars{
     background-color: navy;  
+}
+
+.show .clear-btn{
+    display: block;  
 }
 
 .show {
