@@ -1,0 +1,29 @@
+{
+  "name": "password-generator",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "an app for genrating random and secure passwords",
+  "main": "app.js",
+  "scripts": {
+    "start": "npm install && gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NtajiBenbor/Password-generator.git"
+  },
+  "author": "Ntaji Benedict",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NtajiBenbor/Password-generator/issues"
+  },
+  "homepage": "https://github.com/NtajiBenbor/Password-generator#readme",
+  "devDependencies": {
+    "browser-sync": "^3.0.3",
+    "gulp": "^5.0.0",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-sass": "^6.0.0",
+    "gulp-terser": "^2.1.0",
+    "sass": "^1.83.0"
+  }
+}
