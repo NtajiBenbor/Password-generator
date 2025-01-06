@@ -91,7 +91,7 @@ function initApp() {
     Utils.helpers.clearRecentPasswordList()
   });
 }
-
+console.log("please select a character option");
 
 
 
