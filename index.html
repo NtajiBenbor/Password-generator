@@ -1,81 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="keywords" content="secure, Password, safeguard, generate">
-    <meta name="description" content="An app that generates secure passwords for the user.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="secure, Password, safeguard, generate" />
+    <meta
+      name="description"
+      content="An app that generates secure passwords for the user."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Password Generator</title>
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
-    
+    <link rel="stylesheet" href="dist/style.css" />
+  </head>
+  <body>
     <main class="container">
-        <article>
-            <div><p class="notifications">notifications</p></div>
-            <form>
-                <!-- password output section -->
-                <div class="output-container">
-                    <div class="password-output">
-        
-                    </div>
-                    <!-- regenerate password and copy btn -->
-                    <span>
-                        <button class="copy-btn" type="button">copy</button>
-                        <button type="submit">Gen</button>
-                    </span>
-                </div>
-                <div>
-                    <!-- password strength Indicator bar -->
-                    <div class="p-strength-wrapper d-flex">
-                        <h4>password strength</h4>
-                        <div class="d-flex bars-wrapper">
-                            <div class="strength-txt"></div>
-                            <div class="strength-bars"></div>
-                            <div class="strength-bars"></div>
-                            <div class="strength-bars"></div>
-                        </div>
-                    </div>
-                    <!-- password length -->
-                    <fieldset>
-                        <legend>Please choose your password length:</legend>
-                        <input type="radio" id="pw-length-1" name="pwLength" value="6" checked>
-                        <label for="pw-length-1">6 characters</label>
-                        <br>
-                        <input type="radio" id="pw-length-2" name="pwLength" value="12">
-                        <label for="pw-length-2">12 characters</label>
-                        <br>
-                        <input type="radio" id="pw-length-3" name="pwLength" value="18">
-                        <label for="pw-length-3">18 characters</label>
-                    </fieldset>
-                    <!-- password charater type -->
-                    <fieldset>
-                        <legend>Select your character type:</legend>
-                        <input type="checkbox" name="letters" id="letters" class="charset">
-                        <label for="letters">Letters</label>
-                        <br>
-                        <input type="checkbox" name="specialchar" id="special-char" class="charset">
-                        <label for="special-char">Special Characters</label>
-                        <br>
-                        <input type="checkbox" name="number" id="number" class="charset">
-                        <label for="number">Numbers</label>
-                    </fieldset>
-                </div>
-            </form>
-        </article>
-        <!-- recent Password section-->
-        <article>
-             <h3>Recent Passwords</h3>
-             <aside class="recent-password-container">
-                <!-- password list-->
-                <ul>
-                </ul>
-                <button class="clear-btn" type="button">clear history</button>
-             </aside>
-        </article>
-        <h4>gulf</h4>
+      <article>
+        <div><p class="notifications">notifications</p></div>
+        <form>
+          <!-- password output section -->
+          <div class="output-container">
+            <div class="password-output"></div>
+            <!-- regenerate password and copy btn -->
+            <span>
+              <button class="copy-btn" type="button">copy</button>
+              <button type="submit">Gen</button>
+            </span>
+          </div>
+          <div>
+            <!-- password strength Indicator bar -->
+            <div class="p-strength-wrapper d-flex">
+              <h4>password strength</h4>
+              <div class="d-flex bars-wrapper">
+                <div class="strength-txt"></div>
+                <div class="strength-bars"></div>
+                <div class="strength-bars"></div>
+                <div class="strength-bars"></div>
+              </div>
+            </div>
+            <!-- password length -->
+            <fieldset>
+              <legend>Please choose your password length:</legend>
+              <input
+                type="radio"
+                id="pw-length-1"
+                name="pwLength"
+                value="6"
+                checked
+              />
+              <label for="pw-length-1">6 characters</label>
+              <br />
+              <input type="radio" id="pw-length-2" name="pwLength" value="12" />
+              <label for="pw-length-2">12 characters</label>
+              <br />
+              <input type="radio" id="pw-length-3" name="pwLength" value="18" />
+              <label for="pw-length-3">18 characters</label>
+            </fieldset>
+            <!-- password charater type -->
+            <fieldset>
+              <legend>Select your character type:</legend>
+              <input
+                type="checkbox"
+                name="letters"
+                id="letters"
+                class="charset"
+              />
+              <label for="letters">Letters</label>
+              <br />
+              <input
+                type="checkbox"
+                name="specialchar"
+                id="special-char"
+                class="charset"
+              />
+              <label for="special-char">Special Characters</label>
+              <br />
+              <input
+                type="checkbox"
+                name="number"
+                id="number"
+                class="charset"
+              />
+              <label for="number">Numbers</label>
+            </fieldset>
+          </div>
+        </form>
+      </article>
+      <!-- recent Password section-->
+      <article>
+        <h3>Recent Passwords</h3>
+        <aside class="recent-password-container">
+          <!-- password list-->
+          <ul></ul>
+          <button class="clear-btn" type="button">clear history</button>
+        </aside>
+      </article>
+      <h4>gulf</h4>
     </main>
 
-    <script type="module" src="/app.js"></script>
-</body>
+    <script type="module" src="/app/scripts/app.js"></script>
+  </body>
 </html>
