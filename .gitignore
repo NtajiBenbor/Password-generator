@@ -4,4 +4,6 @@
 # Build output folder/
 dist/
 
+# Gulp config file
+gulpfile.mjs
 
