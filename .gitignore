@@ -1,3 +1,5 @@
+#VS code config
+.vscode/
 
 # Build output folder/
 dist/
