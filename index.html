@@ -40,14 +40,20 @@
           <!-- password length -->
           <fieldset>
             <legend>Please choose your password length:</legend>
+            <label for="pw-length">character length</label>
+            <input type="range" id="pw-length" name="pwLength" value="6"  min="6" max="20" />
+            <p class="slider-val"></p>
+            <br />
+
+            <!-- <legend>Please choose your password length:</legend>
             <input type="radio" id="pw-length-1" name="pwLength" value="6" checked />
             <label for="pw-length-1">6 characters</label>
+            <br /> -->
+            <!-- <input type="radio" id="pw-length-2" name="pwLength" value="12" />
+            <label for="pw-length-2">12 characters</label> -->
             <br />
-            <input type="radio" id="pw-length-2" name="pwLength" value="12" />
-            <label for="pw-length-2">12 characters</label>
-            <br />
-            <input type="radio" id="pw-length-3" name="pwLength" value="18" />
-            <label for="pw-length-3">18 characters</label>
+            <!-- <input type="radio" id="pw-length-3" name="pwLength" value="18" />
+            <label for="pw-length-3">18 characters</label> -->
           </fieldset>
           <!-- password charater type -->
           <fieldset>

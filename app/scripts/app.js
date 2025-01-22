@@ -24,60 +24,82 @@ function initApp() {
   const copyPasswordBtn = document.querySelector(".copy-btn");
   const passwordOutput = document.querySelector(".password-output");
   const clearRecentsListBtn = document.querySelector(".clear-btn");
-  const pwLengthInpOpt_1 = document.getElementById("pw-length-1");
-  const pwLengthInpOpt_2 = document.getElementById("pw-length-2");
-  const pwLengthInpOpt_3 = document.getElementById("pw-length-3");
+  const sliderOutput = document.querySelector(".slider-val");
+  const pwLengthSlider = document.getElementById("pw-length");
+  // const pwLengthInpOpt_2 = document.getElementById("pw-length-2");
+  // const pwLengthInpOpt_3 = document.getElementById("pw-length-3");
   let pLength;
+  sliderOutput.textContent = pwLengthSlider.value;
 
   //Event listener that controls from submission
   form.addEventListener("submit", (event) => {
     event.preventDefault();
+
+    if (
+      !NumbersCharOpt.checked &&
+      !lettersOpt.checked &&
+      !specialCharOpt.checked
+    ) {
+      console.log("please select a character option");
+    } else {
+      pLength = parseInt(pwLengthSlider.value);
+      let password = Utils.random.generatePassword(pLength);
+      Utils.helpers.saveToLocalStorage(password);
+      Utils.helpers.updateRecentsList(password);
+    }
+
     // On form submission, generate a password based on the selected length and character options.
     // If no character options are selected, show an alert.
-    switch (true) {
-      case pwLengthInpOpt_1.checked:
-        if (
-          !NumbersCharOpt.checked &&
-          !lettersOpt.checked &&
-          !specialCharOpt.checked
-        ) {
-          console.log("please select a character option");
-        } else {
-          pLength = parseInt(pwLengthInpOpt_1.value);
-          let password = Utils.random.generatePassword(pLength);
-          Utils.helpers.saveToLocalStorage(password);
-          Utils.helpers.updateRecentsList(password);
-        }
-        break;
-      case pwLengthInpOpt_2.checked:
-        if (
-          !NumbersCharOpt.checked &&
-          !lettersOpt.checked &&
-          !specialCharOpt.checked
-        ) {
-          console.log("please select a character option");
-        } else {
-          pLength = parseInt(pwLengthInpOpt_2.value);
-          let password = Utils.random.generatePassword(pLength);
-          Utils.helpers.saveToLocalStorage(password);
-          Utils.helpers.updateRecentsList(password);
-        }
-        break;
-      case pwLengthInpOpt_3.checked:
-        if (
-          !NumbersCharOpt.checked &&
-          !lettersOpt.checked &&
-          !specialCharOpt.checked
-        ) {
-          console.log("please select a character option");
-        } else {
-          pLength = parseInt(pwLengthInpOpt_3.value);
-          let password = Utils.random.generatePassword(pLength);
-          Utils.helpers.saveToLocalStorage(password);
-          Utils.helpers.updateRecentsList(password);
-        }
-        break;
-    }
+    // switch (true) {
+    //   case pwLengthInpOpt_1.checked:
+    //     if (
+    //       !NumbersCharOpt.checked &&
+    //       !lettersOpt.checked &&
+    //       !specialCharOpt.checked
+    //     ) {
+    //       console.log("please select a character option");
+    //     } else {
+    //       pLength = parseInt(pwLengthInpOpt_1.value);
+    //       let password = Utils.random.generatePassword(pLength);
+    //       Utils.helpers.saveToLocalStorage(password);
+    //       Utils.helpers.updateRecentsList(password);
+    //     }
+    //     break;
+    //   case pwLengthInpOpt_2.checked:
+    //     if (
+    //       !NumbersCharOpt.checked &&
+    //       !lettersOpt.checked &&
+    //       !specialCharOpt.checked
+    //     ) {
+    //       console.log("please select a character option");
+    //     } else {
+    //       pLength = parseInt(pwLengthInpOpt_2.value);
+    //       let password = Utils.random.generatePassword(pLength);
+    //       Utils.helpers.saveToLocalStorage(password);
+    //       Utils.helpers.updateRecentsList(password);
+    //     }
+    //     break;
+    //   case pwLengthInpOpt_3.checked:
+    //     if (
+    //       !NumbersCharOpt.checked &&
+    //       !lettersOpt.checked &&
+    //       !specialCharOpt.checked
+    //     ) {
+    //       console.log("please select a character option");
+    //     } else {
+    //       pLength = parseInt(pwLengthInpOpt_3.value);
+    //       let password = Utils.random.generatePassword(pLength);
+    //       Utils.helpers.saveToLocalStorage(password);
+    //       Utils.helpers.updateRecentsList(password);
+    //     }
+    //     break;
+    // }
+  });
+
+  // Event listener for slider
+  pwLengthSlider.addEventListener("input", () => {
+    const sliderOutput = document.querySelector(".slider-val");
+    sliderOutput.textContent = pwLengthSlider.value;
   });
 
   //Event listener that controls the copy button functionality
@@ -85,7 +107,7 @@ function initApp() {
     Utils.helpers.copyPassword(passwordOutput);
   });
 
-  // Event listner that clears the recents password list
+  // Event listener that clears the recents password list
   clearRecentsListBtn.addEventListener("click", () => {
     Utils.helpers.clearRecentPasswordList();
   });
