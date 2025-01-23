@@ -72,11 +72,11 @@ function resetApp() {
   const form = document.querySelector("form");
   const lettersOpt = form.elements.letters;
   const specialCharOpt = form.elements.specialchar;
-  const NumbersCharOpt = form.elements.number;
+  const numbersCharOpt = form.elements.number;
   // reset the form inputs to an unchecked state
   lettersOpt.checked = false;
   specialCharOpt.checked = false;
-  NumbersCharOpt.checked = false;
+  numbersCharOpt.checked = false;
   pwLengthBtn_6.checked = true;
   passwordOutput.textContent = "";
   // reset the pasword strength indicator
