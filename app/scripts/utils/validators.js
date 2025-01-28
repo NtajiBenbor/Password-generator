@@ -1,5 +1,4 @@
 
-
 // PASSWORD STRENGTH INDICATOR FUNC
 function passwordStrengthIndicator(val){
     const passwordStrengthBars = document.querySelectorAll(".strength-bars");
@@ -10,8 +9,8 @@ function passwordStrengthIndicator(val){
     for (let i = 0; i <= val; i++) {
       bars[i].classList.add("show-strength-bars");
     }
-    // dynamically change the text of the password strength component based on the complexity of the password
-    // complexity is determined by the value of the func val parameter.
+    // dynamically change the text of the password strength component based on the complexity 
+    // of the password complexity is determined by the value of the func "val" parameter.
     switch (true) {
       case val == 0:
         passwordStrengthTxt.textContent = "weak";

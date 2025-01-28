@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 #VS code config
 .vscode/
+=======
+#Vs code config
+.vscode
+>>>>>>> main
 
 # Build output folder/
 dist/
