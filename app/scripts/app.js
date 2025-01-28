@@ -26,9 +26,9 @@ function initApp() {
   const clearRecentsListBtn = document.querySelector(".clear-btn");
   const sliderOutput = document.querySelector(".slider-val");
   const pwLengthSlider = document.getElementById("pw-length");
-  // const pwLengthInpOpt_2 = document.getElementById("pw-length-2");
-  // const pwLengthInpOpt_3 = document.getElementById("pw-length-3");
   let pLength;
+
+  // sets the output of the slider to the sliders initial value 
   sliderOutput.textContent = pwLengthSlider.value;
 
   //Event listener that controls from submission
@@ -48,57 +48,10 @@ function initApp() {
       Utils.helpers.updateRecentsList(password);
     }
 
-    // On form submission, generate a password based on the selected length and character options.
-    // If no character options are selected, show an alert.
-    // switch (true) {
-    //   case pwLengthInpOpt_1.checked:
-    //     if (
-    //       !NumbersCharOpt.checked &&
-    //       !lettersOpt.checked &&
-    //       !specialCharOpt.checked
-    //     ) {
-    //       console.log("please select a character option");
-    //     } else {
-    //       pLength = parseInt(pwLengthInpOpt_1.value);
-    //       let password = Utils.random.generatePassword(pLength);
-    //       Utils.helpers.saveToLocalStorage(password);
-    //       Utils.helpers.updateRecentsList(password);
-    //     }
-    //     break;
-    //   case pwLengthInpOpt_2.checked:
-    //     if (
-    //       !NumbersCharOpt.checked &&
-    //       !lettersOpt.checked &&
-    //       !specialCharOpt.checked
-    //     ) {
-    //       console.log("please select a character option");
-    //     } else {
-    //       pLength = parseInt(pwLengthInpOpt_2.value);
-    //       let password = Utils.random.generatePassword(pLength);
-    //       Utils.helpers.saveToLocalStorage(password);
-    //       Utils.helpers.updateRecentsList(password);
-    //     }
-    //     break;
-    //   case pwLengthInpOpt_3.checked:
-    //     if (
-    //       !NumbersCharOpt.checked &&
-    //       !lettersOpt.checked &&
-    //       !specialCharOpt.checked
-    //     ) {
-    //       console.log("please select a character option");
-    //     } else {
-    //       pLength = parseInt(pwLengthInpOpt_3.value);
-    //       let password = Utils.random.generatePassword(pLength);
-    //       Utils.helpers.saveToLocalStorage(password);
-    //       Utils.helpers.updateRecentsList(password);
-    //     }
-    //     break;
-    // }
   });
 
   // Event listener for slider
   pwLengthSlider.addEventListener("input", () => {
-    const sliderOutput = document.querySelector(".slider-val");
     sliderOutput.textContent = pwLengthSlider.value;
   });
 

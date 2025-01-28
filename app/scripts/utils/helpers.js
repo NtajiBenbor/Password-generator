@@ -20,7 +20,8 @@ function updateRecentsList(password) {
   const listElement = document.createElement("li");
   listElement.classList.add("rect-paswd", "d-flex");
 
-  listElement.innerHTML = `<p>${password}</p><button class="copy-r-btn" type="button">copy</button>`;
+  listElement.innerHTML = 
+  `<p>${password}</p><button class="copy-r-btn" type="button">copy</button>`;
   recentPassList.append(listElement);
 
   // saveToLocalStorage(password);
@@ -67,9 +68,10 @@ function clearRecentPasswordList() {
 
 // RESET APP FUNC
 function resetApp() {
-  const pwLengthBtn_6 = document.getElementById("pw-length-1");
   const passwordOutput = document.querySelector(".password-output");
   const form = document.querySelector("form");
+  const sliderOutput = document.querySelector(".slider-val");
+  const pwLengthSlider = document.getElementById("pw-length");
   const lettersOpt = form.elements.letters;
   const specialCharOpt = form.elements.specialchar;
   const numbersCharOpt = form.elements.number;
@@ -77,7 +79,8 @@ function resetApp() {
   lettersOpt.checked = false;
   specialCharOpt.checked = false;
   numbersCharOpt.checked = false;
-  pwLengthBtn_6.checked = true;
+  sliderOutput.textContent = 6;
+  pwLengthSlider.value =  sliderOutput.textContent;
   passwordOutput.textContent = "";
   // reset the pasword strength indicator
   resetPasswordStrengthIndicator();
@@ -93,7 +96,6 @@ function retrieveFromLocalStorage() {
 // ADD TO LOCAL STORAGE
 function saveToLocalStorage(password) {
   let recentsArry = retrieveFromLocalStorage();
-
   recentsArry.push(password);
   localStorage.setItem("passwordList", JSON.stringify(recentsArry));
 }

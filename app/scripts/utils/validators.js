@@ -1,5 +1,4 @@
 
-
 // PASSWORD STRENGTH INDICATOR FUNC
 function passwordStrengthIndicator(val){
     const passwordStrengthBars = document.querySelectorAll(".strength-bars");
