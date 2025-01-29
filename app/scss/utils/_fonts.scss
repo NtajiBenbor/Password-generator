@@ -1,0 +1,57 @@
+// ****Tomorrow font weights****
+@font-face{
+    font-family: 'Tomorrow';
+    src:
+        local('Tomorrow-Regular'),
+        url('../../assests/fonts/Tomorrow/Tomorrow-Regular.ttf');
+}
+
+@font-face{
+    font-family: "Tomorrow";
+    src:
+        local("Tomorrow-Medium"),
+        url("../../assests/fonts/Tomorrow/Tomorrow-Medium.ttf");
+}
+
+@font-face{
+    font-family: "Tomorrow";
+    src:
+        local("Tomorrow-Bold"),
+        url("../../assests/fonts/Tomorrow/Tomorrow-Bold.ttf");
+}
+
+@font-face{
+    font-family: "Tomorrow";
+    src:
+        local("Tomorrow-ExtraBold"),
+        url("../../assests/fonts/Tomorrow/Tomorrow-ExtraBold.ttf");
+}
+
+
+// ****Barlow font weights******
+@font-face{
+    font-family: "Barlow";
+    src:
+        local("Barlow-Regular"),
+        url("../../assests/fonts/Barlow/Barlow-Regular.ttf");
+}
+
+
+@font-face{
+    font-family: 'Barlow';
+    src:
+        local('Barlow-Regular'),
+        url('../../assests/fonts/Barlow/Barlow-Medium.ttf');
+}
+
+
+@font-face{
+    font-family: "Barlow";
+    src:
+        local("Barlow-Regular"),
+        url("../../assests/fonts/Barlow/Barlow-Bold.ttf");
+}
+
+
+$heading-font: 'Tomorrow', sans-serif;
+$body-font: 'Barlow', sans-serif;
