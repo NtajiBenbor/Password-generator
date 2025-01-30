@@ -1,57 +1,49 @@
 // ****Tomorrow font weights****
 @font-face{
-    font-family: 'Tomorrow';
-    src:
-        local('Tomorrow-Regular'),
-        url('../../assests/fonts/Tomorrow/Tomorrow-Regular.ttf');
+    font-family: 'Tomorrow-Regular';
+    src: local('Tomorrow-Regular'),
+        url('/app/assests/fonts/Tomorrow/Tomorrow-Regular.ttf'),format('truetype');
 }
 
 @font-face{
-    font-family: "Tomorrow";
-    src:
-        local("Tomorrow-Medium"),
-        url("../../assests/fonts/Tomorrow/Tomorrow-Medium.ttf");
+    font-family: 'Tomorrow-Medium';
+    src: local('Tomorrow-Medium'),
+        url('/app/assests/fonts/Tomorrow/Tomorrow-Medium.ttf'),format('truetype');
 }
 
 @font-face{
-    font-family: "Tomorrow";
+    font-family: 'Tomorrow-Bold';
     src:
-        local("Tomorrow-Bold"),
-        url("../../assests/fonts/Tomorrow/Tomorrow-Bold.ttf");
+        local('Tomorrow-Bold'),
+        url('/app/assests/fonts/Tomorrow/Tomorrow-Bold.ttf'),format('truetype');
 }
 
-@font-face{
-    font-family: "Tomorrow";
-    src:
-        local("Tomorrow-ExtraBold"),
-        url("../../assests/fonts/Tomorrow/Tomorrow-ExtraBold.ttf");
-}
+
 
 
 // ****Barlow font weights******
 @font-face{
-    font-family: "Barlow";
+    font-family: 'Barlow-Thin';
     src:
-        local("Barlow-Regular"),
-        url("../../assests/fonts/Barlow/Barlow-Regular.ttf");
+        local('Barlow-thin'),
+        url('/app/assests/fonts/Barlow/Barlow-Thin.ttf'),format('truetype');
 }
 
-
 @font-face{
-    font-family: 'Barlow';
+    font-family: 'Barlow-Regular';
     src:
         local('Barlow-Regular'),
-        url('../../assests/fonts/Barlow/Barlow-Medium.ttf');
+        url('/app/assests/fonts/Barlow/Barlow-Regular.ttf'), format('truetype');
 }
-
 
 @font-face{
-    font-family: "Barlow";
+    font-family: 'Barlow-SemiBold';
     src:
-        local("Barlow-Regular"),
-        url("../../assests/fonts/Barlow/Barlow-Bold.ttf");
+        local('Barlow-SemiBold'),
+        url('/app/assests/fonts/Barlow/Barlow-SemiBold.ttf'), format('truetype');
 }
 
 
-$heading-font: 'Tomorrow', sans-serif;
-$body-font: 'Barlow', sans-serif;
+
+
+

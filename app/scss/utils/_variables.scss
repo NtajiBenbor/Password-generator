@@ -1,5 +1,7 @@
-// @use 'fonts';
+@use 'fonts';
 
-
-// $heading-font: 'Tomorrow', sans-serif;
-// $body-font: 'Barlow', sans-serif;
+// font Variables
+$heading-regular: 'Tomorrow-Regular', sans-serif;
+$heading-bold: 'Tomorrow-Bold', sans-serif;
+$body-thin: 'Barlow-Thin', sans-serif;
+$body-regular: 'Barlow-Regular', sans-serif;

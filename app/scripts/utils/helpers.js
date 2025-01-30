@@ -21,7 +21,7 @@ function updateRecentsList(password) {
   listElement.classList.add("rect-paswd", "d-flex");
 
   listElement.innerHTML = 
-  `<p>${password}</p><button class="copy-r-btn" type="button">copy</button>`;
+  `<p>${password} <br><span>${genDate()}</span></p><button class="copy-r-btn" type="button">copy</button>`;
   recentPassList.append(listElement);
 
   // saveToLocalStorage(password);
@@ -130,6 +130,17 @@ function shuffle(arry) {
   }
   return arry;
 }
+
+// GENERATE DATE FUNCTION
+function genDate(){
+  const newDate = new Date();
+  const day = newDate.getDate();
+  const month = newDate.getMonth()
+  const year = newDate.getFullYear();
+  return month > 0? `${day}/${month}/${year}` : `${day}/${month}1/${year}`;
+}
+
+
 
 export {
   copyPassword,

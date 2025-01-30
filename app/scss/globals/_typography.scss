@@ -1,16 +1,25 @@
 @use '../utils'  as u;
+
 h1,
 h2,
 h3,
 h4,
-h5{
-    // font-weight: 700;
-    font-family: u.$heading-font;
+h5,
+h6{
+    font-family: u.$heading-bold;
 }
 
-h1
+
+label,
+legend,
+span,
+button{
+    font-family: u.$heading-regular;
+}
+
+h1{}
 
 
 p{
-    font-family: u.$body-font;
+    font-family: u.$body-regular;
 }

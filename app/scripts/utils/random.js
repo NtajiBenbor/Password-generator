@@ -98,7 +98,7 @@ function generateNumbers() {
 
 // GENERATE SPECIAL CHARACTERS FUNC
 function generateSpecialChars() {
-	let specialCharArr = ["$", "%", "&", "@", "?","!"];
+	let specialCharArr = ["$", "%", "&", "@", "?","!", "*", "^", "_"];
   specialCharArr = h.shuffle(specialCharArr);
 	return specialCharArr;
 }
@@ -132,15 +132,21 @@ function cleanPassword({
   password = password.join("");
   //check if the generated password contains special character
   // if it does'nt, then include the special characters
-  let regex = /$%&@?!/g;
-  if (regex.test(password)) {
+  let regex = /$%&@?!*^_/g;
+  if (!regex.test(password)) {
+    const chars = ["$", "%", "&", "@", "?", "!", "*", "^", "_"];
     password = password.split("");
     password.splice(-3, 3);
-    password.push("@", "$", "%");
+    for(let i=0; i<3; i++){
+      let randNum = Math.floor(Math.random()* 8);
+      password.push(chars[randNum]);
+    }
+    console.log("remixed",password)
     password = h.shuffle(password);
     return (password = password.join(""));
   } else {
     password = password.split("");
+    console.log("striaght",password);
     return (password = password.join(""));
   }
 }
