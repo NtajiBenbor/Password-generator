@@ -10,21 +10,17 @@ function copyPassword(passwordElement) {
 }
 
 // UPDATE RECENT PASSWORD LIST FUNC
-function updateRecentsList(password) {
-  const recentPassList = document.querySelector(
-    ".recent-password-container ul"
-  );
-  const recentPassContainer = document.querySelector(
-    ".recent-password-container"
-  );
+function updateRecentsList(passwordDatails) {
+  const {password,date}=passwordDatails;
+  const recentPassList = document.querySelector(".password-list");
+  const recentPassContainer = document.querySelector(".recent-password-container" );
   const listElement = document.createElement("li");
   listElement.classList.add("rect-paswd", "d-flex");
 
   listElement.innerHTML = 
-  `<p>${password} <br><span>${genDate()}</span></p><button class="copy-r-btn" type="button">copy</button>`;
+  `<p>${password} <br><span>${date}</span></p><button class="copy-r-btn" type="button">copy</button>`;
   recentPassList.append(listElement);
 
-  // saveToLocalStorage(password);
   const recentsPasswordsArry = retrieveFromLocalStorage();
   const passwordList = document.querySelectorAll(".rect-paswd");
   // event listener on each created list item to enable copy operation
@@ -40,7 +36,8 @@ function updateRecentsList(password) {
   });
 
   // limit the list of recent passwords to 5 items at all times,
-  // by automatically removing the password list items when they exceed 5 items
+  // by automatically removing password list items when they exceed 5 items 
+  // by removing the oldest when a new password has been added to the list
   if (recentsPasswordsArry.length > 5) {
     [...passwordList][0].remove();
     recentsPasswordsArry.shift();
@@ -148,5 +145,6 @@ export {
   updateRecentsList,
   saveToLocalStorage,
   loadRecentsPassword,
-  shuffle
+  shuffle,
+  genDate
 };

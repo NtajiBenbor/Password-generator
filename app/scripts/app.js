@@ -43,9 +43,13 @@ function initApp() {
       console.log("please select a character option");
     } else {
       pLength = parseInt(pwLengthSlider.value);
-      let password = Utils.random.generatePassword(pLength);
-      Utils.helpers.saveToLocalStorage(password);
-      Utils.helpers.updateRecentsList(password);
+      const passwordData = {
+        password: Utils.random.generatePassword(pLength),
+        date: Utils.helpers.genDate()
+      };
+
+      Utils.helpers.saveToLocalStorage(passwordData);
+      Utils.helpers.updateRecentsList(passwordData);
     }
 
   });
