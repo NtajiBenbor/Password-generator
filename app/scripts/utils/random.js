@@ -4,7 +4,7 @@ import * as h from "./helpers.js";
 
 // GENERATE PASSWORD FUNC
 function generatePassword(passwordLength) {
-  const passwordOutput = document.querySelector(".password-output");
+  const passwordOutput = document.querySelector(".form__password-output");
   const copyPaswordBtn = document.querySelector(".copy-btn");
   const form = document.querySelector("form");
   const lettersOpt = form.elements.letters;
@@ -39,7 +39,7 @@ function generatePassword(passwordLength) {
     //  handles cases when only the sepcial character and letter options have been selected
     v.resetPasswordStrengthIndicator();
     const passwordData = {
-      numbers: generateNumbers(),
+      alphabets: generateLetters(),
       spChars: generateSpecialChars(),
       length: passwordLength,
     };
@@ -113,7 +113,7 @@ function cleanPassword({
   let passwordArry = [...alphabets, ...numbers, ...spChars];
 
   // filter out falsey values from the new password array
-  passwordArry = passwordArry.filter((item) => {
+  passwordArry = passwordArry.map((item) => {
     if (item != undefined) {
       return item;
     }
@@ -133,7 +133,7 @@ function cleanPassword({
   //check if the generated password contains special character
   // if it does'nt, then include the special characters
   let regex = /$%&@?!*^_/g;
-  if (!regex.test(password)) {
+  if (regex.test(password)) {
     const chars = ["$", "%", "&", "@", "?", "!", "*", "^", "_"];
     password = password.split("");
     password.splice(-3, 3);
@@ -153,7 +153,6 @@ function cleanPassword({
 
 // CREATE SINGLE CHAR TYPE FUNCTION
 function createSingleCharType(passwordLength) {
-  // const passwordOutput = document.querySelector(".password-output");
   const form = document.querySelector("form");
   const lettersOpt = form.elements.letters;
   const specialCharOpt = form.elements.specialchar;

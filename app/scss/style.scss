@@ -1,1 +1,12 @@
-@forward 'globals';
+@use 'base';
+@use 'components';
+@use 'layout';
+
+// Core fontawesome styles
+@import "../scss/fontawesome/fontawesome.scss";
+
+// our project needs Solid + Brands
+@import '../scss/fontawesome/solid.scss';
+
+
+

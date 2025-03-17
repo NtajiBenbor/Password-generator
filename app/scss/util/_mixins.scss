@@ -1,0 +1,50 @@
+@use 'sass:list';
+@use '../util/functions' as u;
+
+
+//*** Media Query Mixins ***
+
+// screen widths(min-widths)
+// mobile --  700px
+// tablet --  900px
+// small-monitors -- 1440px
+// larger-monitors -- >1440px
+
+// min-width breakpoint map
+$breakpoints-up:(
+    "medium": u.rem(700),
+    "large": u.rem(900),
+    "ex-large": u.rem(1440),
+);
+
+// min-width media query
+@mixin mediaquery-min($size){
+     @media screen and (min-width: map-get($breakpoints-up, $size)) {
+        @content
+    }
+};
+
+// activate flexbox
+
+// $jutify-content-options: space-between, space-around, space-evenly;
+// $align-items-options: start, center, end;
+
+
+
+// @mixin flexbox(){
+//     display:flex;
+//     width: 100%;
+//     // justify-content: list.nth($jutify-content-options, $justifyopt );
+//     // align-items: list.nth($align-items-options , $alignopt );
+// }
+
+
+// debug CSS
+@mixin debug($color){
+    border: 2px solid $color;
+}
+
+
+
+
+

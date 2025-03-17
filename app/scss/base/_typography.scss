@@ -1,0 +1,73 @@
+@use '../util'  as u;
+
+//** font types **
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: u.$heading-bold;
+}
+
+label,
+legend,
+span,
+button{
+    font-family: u.$heading-regular;
+}
+
+
+p{
+    font-family: u.$body-regular;
+}
+
+//** font sizes **
+h1,
+h2{
+    font-size: clamp(1.625rem,2.5vw,2.625rem);
+}
+
+h3{
+    font-size: clamp(1.5rem,1.5vw,2.25rem);
+}
+
+p,
+li{
+    font-size: clamp(1.25rem, 1.2vw, 2rem);
+}
+
+
+
+//** font colors **
+h1,
+h2{
+    color: u.$primary-color;  
+}
+
+
+h3,
+h4,
+h5,
+h6,
+p,
+label,
+legend,
+span {
+    color: u.$primary-txt-color;
+}
+
+li p + p{
+    color: u.$secondary-txt-color;
+    font-size: clamp(.9rem, .7vw, 1.3rem);
+    
+}
+
+.form__password-output{
+    color: u.$secondary-color;
+    font-family: u.$heading-regular;
+}
+
+
+
+
+

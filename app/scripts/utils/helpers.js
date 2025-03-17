@@ -17,8 +17,11 @@ function updateRecentsList(passwordDatails) {
   const listElement = document.createElement("li");
   listElement.classList.add("rect-paswd", "d-flex");
 
-  listElement.innerHTML = 
-  `<p>${password} <br><span>${date}</span></p><button class="copy-r-btn" type="button">copy</button>`;
+  listElement.innerHTML = `<div>
+  <p>${password}</p>
+  <p>${date}</p>
+  </div>
+  <button class="copy-r-btn" type="button">copy</button>`;
   recentPassList.append(listElement);
 
   const recentsPasswordsArry = retrieveFromLocalStorage();
@@ -65,7 +68,7 @@ function clearRecentPasswordList() {
 
 // RESET APP FUNC
 function resetApp() {
-  const passwordOutput = document.querySelector(".password-output");
+  const passwordOutput = document.querySelector(".form__password-output");
   const form = document.querySelector("form");
   const sliderOutput = document.querySelector(".slider-val");
   const pwLengthSlider = document.getElementById("pw-length");

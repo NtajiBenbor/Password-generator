@@ -1,0 +1,16 @@
+// import variables from util folder
+@use '../util' as u;
+
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows:auto;
+    gap: u.rem(50);
+
+    @include u.mediaquery-min(large){
+        grid-template-columns: 2fr 1fr;
+    }
+
+
+}
