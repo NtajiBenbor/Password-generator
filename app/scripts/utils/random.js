@@ -23,7 +23,7 @@ function generatePassword(passwordLength) {
     //  update the UI with the generated password
     passwordOutput.textContent = cleanPassword(passwordData);
     // Display password strength indicator
-    v.passwordStrengthIndicator(2);
+    v.passwordStrengthIndicator(0);
   } else if (lettersOpt.checked && numbersCharOpt.checked) {
     //  handles cases when only the letter and number options have been selected
     v.resetPasswordStrengthIndicator();
@@ -65,7 +65,7 @@ function generatePassword(passwordLength) {
     //  handles cases either sepcial character, number or letter options have been selected
     v.resetPasswordStrengthIndicator();
     passwordOutput.textContent = createSingleCharType(passwordLength);
-    v.passwordStrengthIndicator(0);
+    v.passwordStrengthIndicator(2);
   }
 
   copyPaswordBtn.classList.add("show");

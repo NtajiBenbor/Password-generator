@@ -3,10 +3,10 @@
 @use 'layout';
 
 // Core fontawesome styles
-@import "../scss/fontawesome/fontawesome.scss";
+@use "../scss/fontawesome/fontawesome.scss";
 
 // our project needs Solid + Brands
-@import '../scss/fontawesome/solid.scss';
+@use '../scss/fontawesome/solid.scss';
 
 
 

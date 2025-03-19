@@ -1,5 +1,6 @@
 @use 'sass:list';
 @use '../util/functions' as u;
+@use '../util/variables' as v;
 
 
 //*** Media Query Mixins ***
@@ -42,6 +43,12 @@ $breakpoints-up:(
 // debug CSS
 @mixin debug($color){
     border: 2px solid $color;
+}
+
+
+// password strength indicator
+@mixin bars-color{
+    border: 2px solid v.$alert-color;
 }
 
 
