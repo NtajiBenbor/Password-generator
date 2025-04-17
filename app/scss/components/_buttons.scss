@@ -1,0 +1,50 @@
+@use '../util' as u;
+
+
+// copy button border color
+%border{
+    border: transparent;
+    border-right: 2px solid u.$alert-color;
+}
+
+.copy-btn{
+    background-color: u.$primary-color;
+    color: u.$background-color;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: u.rem(25);
+    @extend %border;
+    width: 50%;
+    position: relative;
+    cursor: pointer;
+    z-index: 4;
+    outline: none;
+
+    &__arrow{
+        margin-left: u.rem(40);
+        color: inherit;
+        
+    }
+
+    &__subscript{
+        position: absolute;
+        background-color: u.$background-color;
+        color: u.$primary-color;
+        margin-top: u.rem(1);
+        padding: u.rem(0) u.rem(2);
+        font-weight: 400;
+        @extend %border;
+        left: 75%;
+        bottom: 0;
+    }
+
+    &__garet{
+        position: absolute;
+        left: -20px;
+        bottom: 0;
+        transform: rotate(45deg);
+        background-color: u.$background-color;
+        padding: u.rem(10);
+        width: u.rem(50);
+    }
+}

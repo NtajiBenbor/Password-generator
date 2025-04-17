@@ -46,19 +46,28 @@
           <div>
       
             <!-- password length -->
-            <fieldset>
-              <div>
-                <button class="copy-btn" type="button">copy</button>
+              <div class="center form__center">
+                <div class="mb">
+                  <button class="copy-btn" type="button">copy Password_
+                    <span class="copy-btn__arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                    <div class="copy-btn__garet"></div>
+                    <div class="copy-btn__subscript">R25</div>
+                  </button>
+                </div>
+
+                <article class="center__slider-wrapper">
+                  <div class="center__slider-container">
+                    <input type="range" class="center__slider" id="pw-length" name="pwLength" value="6" step="1" min="6" max="20"/>
+                  </div>
+
+                  <div class="center__value-container">
+                    <div class="center__slider-val">6</div>
+                  </div>
+                </article>
               </div>
-              <legend>Please choose your password length:</legend>
-              <label for="pw-length"></label>
-              <input type="range" id="pw-length" name="pwLength" value="6" min="6" max="20" />
-              <p class="slider-val"></p>
-              <br/>
-            </fieldset>
+
             <!-- password charater type -->
-            <fieldset>
-              <legend>Select your character type:</legend>
+            <aside class="char-selector-wrapper">
               <input type="checkbox" name="letters" id="letters" class="charset" />
               <label for="letters">Letters</label>
               <br/>
@@ -67,8 +76,7 @@
               <br/>
               <input type="checkbox" name="number" id="number" class="charset" />
               <label for="number">Numbers</label>
-            </fieldset>
-          </div>
+            </aside>
         </form>
       </article>
     

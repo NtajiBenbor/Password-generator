@@ -25,19 +25,7 @@ $breakpoints-up:(
     }
 };
 
-// activate flexbox
 
-// $jutify-content-options: space-between, space-around, space-evenly;
-// $align-items-options: start, center, end;
-
-
-
-// @mixin flexbox(){
-//     display:flex;
-//     width: 100%;
-//     // justify-content: list.nth($jutify-content-options, $justifyopt );
-//     // align-items: list.nth($align-items-options , $alignopt );
-// }
 
 
 // debug CSS
@@ -50,6 +38,27 @@ $breakpoints-up:(
 @mixin bars-color{
     border: 2px solid v.$alert-color;
 }
+
+
+// margin sizes map
+$bottom-sizes:(
+    "mb-1": u.rem(10),
+    "mb-2": u.rem(20),
+    "mb-3": u.rem(30),
+    "mb-4": u.rem(40),
+    "mb-5": u.rem(50),
+);
+
+
+// margin bottom 
+@mixin margin-bottom($size){
+    margin-bottom:  map-get($bottom-sizes, $size);
+};
+
+@mixin cusor-pointer{
+    cursor: pointer;
+}
+
 
 
 

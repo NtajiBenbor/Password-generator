@@ -24,8 +24,9 @@ function initApp() {
   const copyPasswordBtn = document.querySelector(".copy-btn");
   const passwordOutput = document.querySelector(".password-output");
   const clearRecentsListBtn = document.querySelector(".clear-btn");
-  const sliderOutput = document.querySelector(".slider-val");
+  const sliderOutput = document.querySelector(".center__slider-val");
   const pwLengthSlider = document.getElementById("pw-length");
+  const sliderSelector = document.querySelector(".center__selector");
   let pLength;
 
   // sets the output of the slider to the sliders initial value 
@@ -56,6 +57,7 @@ function initApp() {
 
   // Event listener for slider
   pwLengthSlider.addEventListener("input", () => {
+    sliderSelector.style.left = pwLengthSlider.value + "%";
     sliderOutput.textContent = pwLengthSlider.value;
   });
 

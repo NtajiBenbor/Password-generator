@@ -17,7 +17,8 @@ button{
 }
 
 
-p{
+p,
+.center__slider-val{
     font-family: u.$body-regular;
 }
 
@@ -32,7 +33,8 @@ h3{
 }
 
 p,
-li{
+li,
+i{
     font-size: clamp(1.25rem, 1.2vw, 2rem);
 }
 
@@ -64,6 +66,14 @@ li p + p{
 
 .form__password-output{
     color: u.$secondary-color;
+    font-family: u.$heading-regular;
+}
+
+.copy-btn__subscript{
+    font-size: clamp(.6rem, .5vw, 1rem);
+}
+
+.center__slider-val{
     font-family: u.$heading-regular;
 }
 
