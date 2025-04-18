@@ -17,11 +17,16 @@
     font-weight: 800;
     text-transform: uppercase;
     padding: u.rem(25);
+    text-wrap: no-wrap;
     @extend %border;
-    width: 50%;
+    width: 80%;
     position: relative;
     z-index: 4;
     outline: none;
+
+    @include u.mediaquery-min(medium){
+        width: 50%;
+    }
 
     &__arrow{
         margin-left: u.rem(40);
@@ -35,19 +40,42 @@
         color: u.$primary-color;
         margin-top: u.rem(1);
         padding: u.rem(0) u.rem(2);
-        font-weight: 400;
+        font-weight: 700;
         @extend %border;
         left: 75%;
         bottom: 0;
+
+        @include u.mediaquery-min(medium){
+            font-weight: 400;
+        }
     }
 
     &__garet{
         position: absolute;
-        left: -20px;
-        bottom: 0;
+        left: u.rem(-20);
+        bottom: u.rem(-2);
         transform: rotate(45deg);
         background-color: u.$background-color;
         padding: u.rem(10);
         width: u.rem(50);
     }
+}
+
+.copy-r-btn{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: u.$primary-txt-color;
+}
+
+
+.clear-btn{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: u.$primary-color;
+    display: block;
+    margin: 0 auto;
+    margin-top: u.rem(20);
+    text-transform: uppercase;
 }

@@ -11,9 +11,9 @@ function copyPassword(passwordElement) {
 
 // UPDATE RECENT PASSWORD LIST FUNC
 function updateRecentsList(passwordDatails) {
-  const {password,date}=passwordDatails;
-  const recentPassList = document.querySelector(".password-list");
-  const recentPassContainer = document.querySelector(".recent-password-container" );
+  const {password,date}= passwordDatails;
+  const recentPassList = document.querySelector(".recent__password-list");
+  const recentPassContainer = document.querySelector(".recent-password-container");
   const listElement = document.createElement("li");
   listElement.classList.add("rect-paswd", "d-flex");
 
@@ -21,7 +21,7 @@ function updateRecentsList(passwordDatails) {
   <p>${password}</p>
   <p>${date}</p>
   </div>
-  <button class="copy-r-btn" type="button">copy</button>`;
+  <button class="copy-r-btn" type="button"><i class="fa-solid fa-copy"></i></button>`;
   recentPassList.append(listElement);
 
   const recentsPasswordsArry = retrieveFromLocalStorage();

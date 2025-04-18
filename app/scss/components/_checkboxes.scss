@@ -6,6 +6,7 @@
   @include u.acivate-flexbox;
   justify-content: space-between;
 
+
   &__checkbox{
     display:none;
   }
@@ -13,12 +14,10 @@
   &__custom-checkbox{
     width: u.rem(20);
     height: u.rem(20);
-    // padding: u.rem(5);
     display: inline-block;
-    margin-right: u.rem(10);
+    margin-right: u.rem(5);
     background-color: transparent;
-    border: 2px solid u.$primary-color;
-
+    border: 3px solid u.$primary-color;
   }
 
   &__checkbox:checked + &__custom-checkbox{

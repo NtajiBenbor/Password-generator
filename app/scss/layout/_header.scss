@@ -1,6 +1,11 @@
+@use '../util' as u;
 
 .header{
     width:inherit;
-    margin: 1.25em auto 3.125em auto;
+    margin: u.rem(20)auto;
+
+    @include u.mediaquery-min(medium){
+        margin: u.rem(40)auto;
+    }
 
 }
