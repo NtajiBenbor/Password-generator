@@ -1,6 +1,33 @@
 @use '../util/' as u;
 
 
-.char-selector-wrapper{
-   
+.checkbox-wrapper{
+  width: 80%;  
+  @include u.acivate-flexbox;
+  justify-content: space-between;
+
+  &__checkbox{
+    display:none;
+  }
+
+  &__custom-checkbox{
+    width: u.rem(20);
+    height: u.rem(20);
+    // padding: u.rem(5);
+    display: inline-block;
+    margin-right: u.rem(10);
+    background-color: transparent;
+    border: 2px solid u.$primary-color;
+
+  }
+
+  &__checkbox:checked + &__custom-checkbox{
+    background-color: u.$primary-color;
+  }
+  
+
 }
+
+.checkbox-wrapper__group  > .mb{
+    @include u.margin-bottom(mb-2);
+  }

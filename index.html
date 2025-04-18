@@ -48,7 +48,7 @@
             <!-- password length -->
               <div class="center form__center">
                 <div class="mb">
-                  <button class="copy-btn" type="button">copy Password_
+                  <button class="copy-btn btn" type="button">copy Password_
                     <span class="copy-btn__arrow"><i class="fa-solid fa-arrow-right"></i></span>
                     <div class="copy-btn__garet"></div>
                     <div class="copy-btn__subscript">R25</div>
@@ -67,15 +67,26 @@
               </div>
 
             <!-- password charater type -->
-            <aside class="char-selector-wrapper">
-              <input type="checkbox" name="letters" id="letters" class="charset" />
-              <label for="letters">Letters</label>
-              <br/>
-              <input type="checkbox" name="specialchar" id="special-char" class="charset" />
-              <label for="special-char">Special Characters</label>
-              <br/>
-              <input type="checkbox" name="number" id="number" class="charset" />
-              <label for="number">Numbers</label>
+            <aside class="checkbox-wrapper">
+              <div class="checkbox-wrapper__group">
+                <div class="mb">
+                  <input type="checkbox" name="letters" id="letters" class="checkbox-wrapper__checkbox" />
+                  <span class="checkbox-wrapper__custom-checkbox"></span>
+                  <label for="letters">Letters</label>
+                </div>
+
+                <div>
+                  <input type="checkbox" name="specialchar" id="special-char" class="checkbox-wrapper__checkbox" />
+                  <span class="checkbox-wrapper__custom-checkbox"></span>
+                  <label for="special-char">Special Characters</label>
+                </div>
+              </div>
+
+              <div>
+                <input type="checkbox" name="number" id="number" class="checkbox-wrapper__checkbox" />
+                <span class="checkbox-wrapper__custom-checkbox"></span>
+                <label for="number">Numbers</label>
+              </div>
             </aside>
         </form>
       </article>
@@ -86,7 +97,7 @@
         <aside class="recent-password-container">
           <!-- password list-->
           <ul class="password-list"></ul>
-          <button class="clear-btn" type="button">clear history</button>
+          <button class=" btn clear-btn" type="button">clear history</button>
         </aside>
       </article>
     </main>

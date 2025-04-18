@@ -55,8 +55,14 @@ $bottom-sizes:(
     margin-bottom:  map-get($bottom-sizes, $size);
 };
 
-@mixin cusor-pointer{
+// changing pointer to cursor
+@mixin cursor-pointer{
     cursor: pointer;
+}
+
+// activate flexbox
+@mixin acivate-flexbox{
+    display: flex;
 }
 
 

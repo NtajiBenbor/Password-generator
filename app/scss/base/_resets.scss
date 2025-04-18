@@ -48,3 +48,7 @@
   #root, #__next {
     isolation: isolate;
   }
+
+ label{
+    @include u.cursor-pointer;
+  }
